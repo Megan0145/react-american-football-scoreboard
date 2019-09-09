@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 import TopRow from "./TopRow";
+import Buttons from "./Buttons";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -40,19 +41,7 @@ function App() {
         <TopRow homeScore = {homeScore} awayScore = {awayScore} />
         <BottomRow quarter = {gameQuarter}/>
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick = {setPoints('Lions', touchdown)}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal" onClick = {setPoints('Lions', fieldGoal)}>Home Field Goal</button>
-          <button className="homeButtons__fieldGoal" onClick = {reset}>Reset Scores</button>
-        </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick = {setPoints('Tigers', touchdown)}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick = {setPoints('Tigers', fieldGoal)}>Away Field Goal</button>
-          <button className="awayButtons__fieldGoal" onClick = {updateQuarter}>Increment Game Quarter</button>
-        </div>
-      </section>
+        <Buttons setPoints = {setPoints} touchdown = {touchdown} fieldGoal = {fieldGoal} reset = {reset} updateQuarter = {updateQuarter}/>
     </div>
   );
 }
